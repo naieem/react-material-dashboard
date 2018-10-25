@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build:production": "webpack --mode production && webpack --config webpack.server.js --mode production && node ./bundle/server.js"
+    "build:production": "webpack --mode production && webpack --config webpack.server.js --mode production && node ./bundle/server.js",
+    "serve:production": "node ./bundle/server.js"
   },
   "keywords": [
     "react",
