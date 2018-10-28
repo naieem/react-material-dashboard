@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import DialogComp from 'Package/Dailog';
+import PlatformRedux from 'Package/CustomRedux';
 import Button from '@material-ui/core/Button';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
@@ -11,15 +12,47 @@ class Dashboard extends Component {
         this.state = {
             open: false
         };
+        this.initialData = [
+            {
+                name:'naieem',
+                title: 'SF',
+                details: 'hello world'
+            },
+            {
+                name:'Mahmud',
+                title: 'SF',
+                details: 'hello world Mahmud'
+            },
+            {
+                name:'Supto',
+                title: 'SF',
+                details: 'hello world Supto'
+            }
+        ];
         this.name = 'hello world';
         this.handleClickOpen = this.handleClickOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
+        this.updateStore = this.updateStore.bind(this);
+        PlatformRedux.createStore(this.initialData);
     }
     handleClose = () => {
         this.setState({open: false});
     }
     handleClickOpen = () => {
         this.setState({open: true});
+    }
+    updateStore = ()=>{
+        debugger;
+        PlatformRedux.dispatch(
+            {
+                type:'Add',
+                payload:{
+                    name:'Hukak kabab',
+                    title: 'BG',
+                    details: 'hello Hukka kabab'
+                }
+            }
+        );
     }
     render() {
         return (
@@ -57,6 +90,7 @@ class Dashboard extends Component {
                         </DialogContent>
                     </DialogComp>
                 )}
+                <span onClick={this.updateStore}>Hukka HUa</span>
             </div>
         );
     }

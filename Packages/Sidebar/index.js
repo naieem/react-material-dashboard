@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import PlatformRedux from 'Package/CustomRedux';
 import {withStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,10 +17,14 @@ class Sidebar extends Component {
     constructor(props) {
         super(props);
         this.changeRoute = this.changeRoute.bind(this);
+        PlatformRedux.subscriber(this.stateChange);
     }
     changeRoute = (url)=> {
         this.props.history.push(url);
     };
+    stateChange = (response)=>{
+        
+    }
     render() {
         const {classes} = this.props;
 
