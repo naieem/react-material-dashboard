@@ -23,7 +23,7 @@ class Sidebar extends Component {
         this.props.history.push(url);
     };
     stateChange = (response)=>{
-        
+
     }
     render() {
         const {classes} = this.props;
